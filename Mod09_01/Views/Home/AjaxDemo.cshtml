@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AjaxDemo</title>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script>
+        $(function () {
+            $("#button1").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/CustomerInfo.asmx/GetCustomer",
+                    //Json進，Json出
+                    data: '{"id":"' + $("#Text1").val() + '"}',
+                    //要有這一行才有Json進
+                    contentType: "application/json;charset=utf-8",
+                    success: function (data) {
+                        //按F12看console
+                        console.log(data);
+                        //資料展示的方式
+                        $("#result").text(data.d.CustomerId + "--" + data.d.Name);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        id=<input id="Text1" type="text" value="123" />
+        <input id="button1" type="button" value="取得客戶名字" />
+        <div id="result">...</div>
+    </div>
+</body>
+</html>

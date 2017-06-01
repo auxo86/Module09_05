@@ -118,6 +118,7 @@
     <Content Include="Views\Home\SelectorDemo.cshtml" />
     <Content Include="Views\Home\HoverDemo.cshtml" />
     <Content Include="Views\Home\JsonData.cshtml" />
+    <Content Include="Views\Home\AjaxDemo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
