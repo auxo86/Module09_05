@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JsonData</title>
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script>
+        $(function () {
+            $("#button1").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/JsonData",
+                    data: "id=123&name=Mary",
+                    success: function (data) {
+                        //按F12看console
+                        console.log(data);
+                        //資料展示的方式
+                        $("#result").text(data.empId + "--" + data.EmpName + "--" + data.Age);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" value="ajax" id="button1" />
+        <div id="result">...</div>
+    </div>
+</body>
+</html>
